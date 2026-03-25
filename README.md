@@ -179,23 +179,7 @@ em.getTransaction().commit();
 
 ---
 
-## ⚠️ Pontos de Atenção
 
-**Query executada duas vezes no case 2 (Listar):**
-
-```java
-// ❌ Errado — executa a query duas vezes
-query.getResultList().forEach(...);
-if (query.getResultList().isEmpty()) { ... }
-
-// ✅ Correto — armazena o resultado e reutiliza
-List<Usuario> lista = query.getResultList();
-if (lista.isEmpty()) {
-    System.out.println("Nenhum usuário encontrado!");
-} else {
-    lista.forEach(u -> System.out.println(u.getId() + ": " + u.getNome()));
-}
-```
 
 **Fechar os recursos ao sair:**
 
